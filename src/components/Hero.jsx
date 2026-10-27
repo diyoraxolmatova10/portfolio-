@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, ArrowRight, MapPin, Mail, Phone, Code2, Sparkles, Send } from 'lucide-react';
+import { Terminal, ArrowRight, MapPin, Mail, Phone, Code2, Sparkles, Send, FileText } from 'lucide-react';
 import { GithubIcon, TelegramIcon, LinkedinIcon, InstagramIcon } from './SocialIcons';
 import confetti from 'canvas-confetti';
 
@@ -108,6 +108,18 @@ const Hero = ({ data }) => {
                 <TelegramIcon className="w-5 h-5 group-hover:scale-125 group-hover:-translate-y-0.5 transition-transform" />
                 <span>Telegram Lichkaga Yozish</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              {/* CV / Resume Action Button */}
+              <a
+                href="/cv.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => fireCelebrate('#a855f7')}
+                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-mono text-sm font-bold shadow-xl shadow-purple-600/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden"
+              >
+                <FileText className="w-5 h-5 text-white group-hover:scale-110 group-hover:-translate-y-0.5 transition-transform" />
+                <span>CV / Rezyumeni Ko'rish</span>
               </a>
 
               {/* GitHub Action Button */}

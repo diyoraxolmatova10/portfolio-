@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X, Send } from 'lucide-react';
+import { Terminal, Menu, X, Send, FileText } from 'lucide-react';
 import { GithubIcon, TelegramIcon, LinkedinIcon, InstagramIcon } from './SocialIcons';
 import confetti from 'canvas-confetti';
 
@@ -77,6 +77,19 @@ const Navbar = ({ personal }) => {
         {/* Fast Action Buttons: Telegram + GitHub + Socials */}
         <div className="hidden sm:flex items-center gap-2.5">
           
+          {/* Resume / CV Direct Action Button */}
+          <a
+            href="/cv.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => triggerCelebrate('#a855f7')}
+            className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-purple-500/50 hover:border-purple-400 text-purple-300 hover:text-white font-mono text-xs font-semibold shadow-md transition-all duration-300 hover:scale-105"
+            title="Diyora Xolmatova CV / Resume"
+          >
+            <FileText className="w-3.5 h-3.5 text-purple-400 group-hover:scale-110 transition-transform" />
+            <span>CV / Resume</span>
+          </a>
+
           {/* Telegram Direct Action Button */}
           <a
             href={personal.telegram}
@@ -154,6 +167,17 @@ const Navbar = ({ personal }) => {
 
           {/* Mobile direct social links */}
           <div className="pt-2 space-y-2">
+            <a
+              href="/cv.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => triggerCelebrate('#a855f7')}
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-mono text-xs font-semibold shadow-md shadow-purple-600/30"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Diyora Xolmatova — CV / Resume (Ko'rish / Yuklash)</span>
+            </a>
+
             <a
               href={personal.telegram}
               target="_blank"

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diyora Xolmatova — CV / Resume (Frontend Developer)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060813;
+      --card: #0b0f24;
+      --accent: #00f2fe;
+      --accent-purple: #a855f7;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border: #1e294b;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .cv-container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 45px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 25px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .header-left h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    .header-left .role {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .header-left .location {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .contact-badge-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item:hover {
+      color: var(--accent);
+    }
+    .print-btn-bar {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    .action-btn {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-purple));
+      color: #ffffff;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(0, 242, 254, 0.4);
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section-title {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title span {
+      color: var(--accent);
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .bio-text {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-pill {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      background: #070913;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--accent);
+    }
+    .project-card {
+      background: #070913;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .project-repo {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--accent-purple);
+      text-decoration: none;
+    }
+    .project-desc {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+    .project-techs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .strengths-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+    }
+    .strength-item {
+      background: #070913;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .strength-item strong {
+      color: #ffffff;
+      display: block;
+      margin-bottom: 2px;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        color: #0f172a;
+        padding: 0;
+      }
+      .cv-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        background: #ffffff;
+        color: #0f172a;
+      }
+      .print-btn-bar {
+        display: none;
+      }
+      .header-left h1 {
+        color: #0f172a;
+      }
+      .header-left .role {
+        color: #0284c7;
+      }
+      .header-left .location, .contact-item {
+        color: #475569;
+      }
+      .project-card, .strength-item, .skill-pill {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #1e293b;
+      }
+      .project-title, .strength-item strong, .section-title {
+        color: #0f172a;
+      }
+      .section-title::after {
+        background: #cbd5e1;
+      }
+      .bio-text, .project-desc {
+        color: #334155;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-container">
+    <div class="print-btn-bar">
+      <button class="action-btn" onclick="window.print()">
+        🖨️ Chop etish / PDF sifatida yuklash
+      </button>
+      <a href="/" class="action-btn" style="background: #1e294b;">
+        ⬅ Portfolioga qaytish
+      </a>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1>DIYORA XOLMATOVA</h1>
+        <div class="role">// FRONTEND DEVELOPER (REACT)</div>
+        <div class="location">📍 Farg'ona, O'zbekiston</div>
+      </div>
+      <div class="contact-badge-list">
+        <a href="tel:+998948671881" class="contact-item">📞 +998 94 867 18 81</a>
+        <a href="mailto:diyoraxolmatova@gmail.com" class="contact-item">✉️ diyoraxolmatova@gmail.com</a>
+        <a href="https://t.me/floweraza" target="_blank" class="contact-item">✈️ Telegram: @floweraza</a>
+        <a href="https://github.com/diyoraxolmatova10" target="_blank" class="contact-item">🐙 GitHub: diyora_xolmatova</a>
+        <a href="https://instagram.com/_abdatullah_" target="_blank" class="contact-item">📸 Instagram: @_abdatullah_</a>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="section">
+      <h2 class="section-title"><span>01.</span> MENING HAQIMDA</h2>
+      <p class="bio-text">
+        Zamonaviy va qulay web-interfeyslarni yaratishga qiziquvchi Frontend Dasturchiman. React.js, JavaScript, Tailwind CSS va boshqa zamonaviy texnologiyalar yordamida responsive hamda foydalanuvchi uchun qulay loyihalar tayyorlayman. Har doim yangi texnologiyalarni o'rganishga va loyihalar sifatini oshirishga intilaman.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="section">
+      <h2 class="section-title"><span>02.</span> KO'NIKMALAR VA TILLAR</h2>
+      <div class="skills-grid" style="margin-bottom: 16px;">
+        <span class="skill-pill">React.js</span>
+        <span class="skill-pill">JavaScript (ES6+)</span>
+        <span class="skill-pill">Tailwind CSS</span>
+        <span class="skill-pill">Next.js</span>
+        <span class="skill-pill">Framer Motion</span>
+        <span class="skill-pill">Ant Design</span>
+        <span class="skill-pill">REST API</span>
+        <span class="skill-pill">Git / GitHub</span>
+        <span class="skill-pill">HTML5 / CSS3</span>
+      </div>
+      <p class="bio-text" style="font-size: 0.85rem; color: var(--text-muted);">
+        <strong>Tillar:</strong> O'zbek tili (Ona tili), Rus tili (O'rta daraja), Ingliz tili (Elementary)
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+      <h2 class="section-title"><span>03.</span> LOYIHALAR VA PORTFOLIO</h2>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">1. CRM Boshqaruv Tizimi</div>
+          <a href="https://crm-blond-five-84.vercel.app/" target="_blank" class="project-repo">crm-blond-five-84.vercel.app</a>
+        </div>
+        <p class="project-desc">
+          Mijozlar, ma'lumotlar oqimi va jarayonlarni samarali nazorat qilish uchun qulay boshqaruv paneli (Dashboard & CRM).
+        </p>
+        <div class="project-techs">
+          <span>React.js</span> • <span>Dashboard UI</span> • <span>REST API</span> • <span>Tailwind CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">2. Hotel Bron Qilish Platformasi</div>
+          <a href="https://hotel-olive-eight.vercel.app/" target="_blank" class="project-repo">hotel-olive-eight.vercel.app</a>
+        </div>
+        <p class="project-desc">
+          Mehmonxona xonalari, qulayliklar va narxlarni real-vaqt rejimida ko'rib chiqish hamda band qilish platformasi.
+        </p>
+        <div class="project-techs">
+          <span>React.js</span> • <span>Reservation System</span> • <span>Tailwind CSS</span> • <span>JavaScript</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">3. Shifo Tibbiyot Portali</div>
+          <a href="https://shifo-top-indol.vercel.app/" target="_blank" class="project-repo">shifo-top-indol.vercel.app</a>
+        </div>
+        <p class="project-desc">
+          Shifokorlar qabuli, tibbiy xizmatlar va salomatlik bo'yicha ma'lumotlarni o'z ichiga olgan tibbiy veb-portal.
+        </p>
+        <div class="project-techs">
+          <span>React.js</span> • <span>Medical Portal</span> • <span>UI Components</span> • <span>Tailwind CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">4. Avtomobil Savdosi Platformasi</div>
+          <a href="https://mashina-ruby.vercel.app/" target="_blank" class="project-repo">mashina-ruby.vercel.app</a>
+        </div>
+        <p class="project-desc">
+          Avtomobillar katalogi, texnik parametrlar, qidiruv va filtrlash xususiyatlariga ega zamonaviy avto platforma.
+        </p>
+        <div class="project-techs">
+          <span>React.js</span> • <span>Catalog & Filter</span> • <span>Tailwind CSS</span> • <span>JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Strengths -->
+    <section class="section">
+      <h2 class="section-title"><span>04.</span> TA'LIM & KUCHLI TOMONLARIM</h2>
+      <div style="margin-bottom: 16px;">
+        <strong style="color: #ffffff; font-size: 0.95rem;">Frontend Development Course</strong> — 
+        <span style="color: var(--accent);">O'quv Markazi / Akademiya (2026 - Hozirgi vaqtda)</span>
+      </div>
+      <ul class="strengths-list">
+        <li class="strength-item">
+          <span>✔</span>
+          <div>
+            <strong>Mas'uliyatlilik</strong>
+            Topshiriqlarni o'z vaqtida va sifatli bajarish.
+          </div>
+        </li>
+        <li class="strength-item">
+          <span>✔</span>
+          <div>
+            <strong>Tahliliy fikrlash</strong>
+            Muammolarni tahlil qilish va mantiqiy yechim topish.
+          </div>
+        </li>
+        <li class="strength-item">
+          <span>✔</span>
+          <div>
+            <strong>Jamoada ishlash</strong>
+            Muloqotga kirishuvchanlik va o'zaro hamkorlik.
+          </div>
+        </li>
+        <li class="strength-item">
+          <span>✔</span>
+          <div>
+            <strong>Tez o'rganish</strong>
+            Doimiy o'rganish va yangi bilimlarni tez o'zlashtirish.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+</body>
+</html>

@@ -45,22 +45,12 @@ const Projects = ({ projects, userGithub }) => {
                   
                   <div className="flex items-center gap-2">
                     <a
-                      href={project.githubUrl}
+                      href={project.liveUrl || project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleProjectClick}
                       className="p-2.5 rounded-lg bg-[#070913] border border-slate-800 hover:border-cyan-400 text-slate-300 hover:text-cyan-400 transition-colors"
-                      title="GitHub Repository"
-                    >
-                      <GithubIcon className="w-4 h-4" />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleProjectClick}
-                      className="p-2.5 rounded-lg bg-[#070913] border border-slate-800 hover:border-purple-400 text-slate-300 hover:text-purple-400 transition-colors"
-                      title="Havolani ochish"
+                      title="Loyihani ochish (Live Demo)"
                     >
                       <ExternalLink className="w-4 h-4" />
                     </a>
@@ -96,14 +86,14 @@ const Projects = ({ projects, userGithub }) => {
                 </div>
 
                 <a
-                  href={project.githubUrl}
+                  href={project.liveUrl || project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleProjectClick}
                   className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-950 to-[#0f152d] hover:from-cyan-900/60 hover:to-purple-900/60 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 hover:text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all duration-300 shadow-md group/btn"
                 >
-                  <GithubIcon className="w-4 h-4 text-cyan-400 group-hover/btn:rotate-12 transition-transform" />
-                  <span>Repo: {project.repoName}</span>
+                  <ExternalLink className="w-4 h-4 text-cyan-400 group-hover/btn:scale-110 transition-transform" />
+                  <span>Loyihaga Kirish (Live Demo)</span>
                   <ExternalLink className="w-3.5 h-3.5 opacity-70 group-hover/btn:translate-x-0.5 transition-transform" />
                 </a>
               </div>
